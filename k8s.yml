@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  connection: local
+  vars:
+    ssh_key: k8s
+    k8s_version: v1.2.0
+    k8s_num_nodes: 2
+    k8s_network_name: test-network
+    k8s_vpc_name: test-vpc
+    k8s_node_prefix: k8s
+    k8s_username: foobar
+    k8s_password: FdKPSuwQ
+    k8s_template: SSC-CoreOS_V2 
+    k8s_instance_type: 1vCPU-0.5GB
+
+  roles:
+    - common
+    - k8s

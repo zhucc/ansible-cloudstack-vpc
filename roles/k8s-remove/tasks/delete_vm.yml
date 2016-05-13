@@ -1,0 +1,13 @@
+  - name: Remove k8s head node
+    local_action:
+      module: cs_instance
+      name: "{{ k8s_node_prefix }}-head"
+      state: expunged
+
+  - name: Remove k8s nodes
+    local_action:
+      module: cs_instance
+      name: "{{ k8s_node_prefix }}-node-{{ item }}"
+      state: expunged
+    with_sequence: count={{ k8s_num_nodes }}
+     

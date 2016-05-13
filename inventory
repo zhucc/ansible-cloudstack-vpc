@@ -1,0 +1,13 @@
+[default]
+# localhost ansible_python_interpreter=/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/python
+
+[nodes]
+172.16.101.108
+172.16.101.41
+172.16.101.90
+
+[nodes:vars]
+public_ip=185.39.229.58
+ansible_ssh_user=core
+ansible_ssh_private_key_file=~/.ssh/id_rsa_k8s
+ansible_python_interpreter="PATH=/home/core/bin:$PATH python"

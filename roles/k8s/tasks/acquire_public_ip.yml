@@ -1,0 +1,9 @@
+# Acquire Public IP
+
+  - name: Acquire Public Ip address
+    local_action:
+     module: cs_ip_address
+     vpc: "{{ k8s_vpc_name }}"
+    register: public_ip
+
+  - debug: msg='Acquired IP {{ public_ip.ip_address }}'

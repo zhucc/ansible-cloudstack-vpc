@@ -1,0 +1,9 @@
+# Setup firewall rules and static nat
+
+  - name: ensure static NATs for head node
+    local_action:
+      module: cs_staticnat
+      vm: "{{ k8s_master.name }}"
+      ip_address: "{{ public_ip.ip_address }}"
+      network: "{{ k8s_network_name }}"
+    when: public_ip is defined
